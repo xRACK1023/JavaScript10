@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html>
+    <head>  
+        <title>Life Expectancy</title> 
+        <style>            
+            table {
+                width: 75%;
+                border-collapse: collapse;
+                margin-right: auto;
+                margin-left: auto;
+            }
+            table, th, td {
+                font-family: verdana;
+                border: 2px solid green;
+                background-color: lightgray;
+                padding: 5px;           
+            }
+            h2 {
+                font-family:verdana;
+                font-size:200%;
+                text-align: center;
+                color:green;
+            }    
+            h3 {
+                font-family:verdana;
+                font-size:100;
+                text-align: center;
+                color:green;
+            }  
+            .name {
+                font-family:verdana;
+                 color:green;
+            }
+            .foundedJustify{
+                text-align: right;
+            }           
+            </style>
+        <script>
+            var state = state = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware", "D. C.","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas", "Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi", "Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York", "North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina", "South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
+            var male = [70.1,74.3,73.4,71.1,76.2,75.8,75.6,73.9,71.7,74.6,72.8,77.6,76.1,73.8,72.3,74.9,73.8,70.6, 69.9,74.9,73.8,76,73.4,76.8,68.6,72.1,74.2,75.2,73.5,76.5,74.6,71.3,74.8,73.3,74.2,72.5,71.5,76.3, 74,75.5,71.7,74.2,70.7,73.7,76.7,76.1,75.1,76.9,69.8,75.2,74];
+            var female = [76.4,79.2,79.5,76.6,82,80.9,81.3,79.5,78.7,80,78.3,83.8,80.8,79.8,77.9,80.1,79.2,76.5,76.4, 80.7,79.7,81.5,78.8,81.4,75.2,78.1,79.6,80.3,79.2,81.5,80.5,77.8,80.7,79,80,78.1,76.9,81.3,79.6,80.9, 78,79.4,77,79.3,80.6,81.4,80.1,81.6,76.1,80.3,78.9];
+        
+        function showAll() {
+            var text = "<table><tr><th>State</th><th>Male</th><th>Female</th></tr>";
+            for (i = 0; i < state.length; i++){
+                text += "<tr>" + "<td>" + state[i] + "</td>" + "<td>" + male[i] + "</td>" +"<td>" + female[i] +"</td>" + "</tr>";
+            }
+            text += "</table>";
+            document.getElementById("displayTable").innerHTML = text;
+        }                           
+             
+        function showMale(){
+            var text = "<table><tr><th>State</th><th>Male</th><th>Female</th></tr>";
+            var age = parseInt(document.getElementById("numberIn").value);
+            var text = "<table><tr><th>State</th><th>Female</th></tr>";
+            
+            for (i = 0; i < state.length; i++){
+                if (male[i] >= age) {
+                text += "<tr>" + "<td>" + state[i] + "</td>" + "<td>" + male[i] + "</td>" +"<td>" + female[i] +"</td>" + "</tr>";
+                }
+            }
+            text += "</table>";
+            document.getElementById("displayTable").innerHTML = text;
+        }
+
+        function showFemale(){
+            var text = "<table><tr><th>State</th><th>Male</th><th>Female</th></tr>";
+            for (i = 0; i < state.length; i++){
+                if (female[i] >= 80){
+                text += "<tr>" + "<td>" + state[i] + "</td>" + "<td>" + male[i] + "</td>" +"<td>" + female[i] +"</td>" + "</tr>";
+                }
+            }
+            text += "</table>";
+            document.getElementById("displayTable").innerHTML = text;
+        }
+        </script>
+    </head>
+	<body>
+        <h2>Anerican Life Expectancy</h2>
+        <h3>by State</h3>
+        
+        <p>Number <input id="numberIn" type="text" size="4"></p>
+
+        <button type="button" onclick="showAll()">All</button><br/>
+        <button type="button" onclick="showFemale()">Female</button><br/>
+        <button type="button" onclick="showMale()">Male</button><br/>
+
+        <p id="displayTable"></p>
+
+        <p class="name">josephParrett</p>
+	</body>
+</html>
