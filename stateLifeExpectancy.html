@@ -14,7 +14,14 @@
                 font-family: verdana;
                 border: 2px solid green;
                 background-color: lightgray;
+
                 padding: 5px;           
+            }
+            .tableHeader{
+                color: darkblue;
+                font-family: Verdana;
+                font-size: 150%;
+   
             }
             h2 {
                 font-family:verdana;
@@ -30,9 +37,9 @@
             }  
             .name {
                 font-family:verdana;
-                 color:green;
+                color:darkblue;
             }
-            .foundedJustify{
+            .age{
                 text-align: right;
             }           
             </style>
@@ -42,22 +49,21 @@
             var female = [76.4,79.2,79.5,76.6,82,80.9,81.3,79.5,78.7,80,78.3,83.8,80.8,79.8,77.9,80.1,79.2,76.5,76.4, 80.7,79.7,81.5,78.8,81.4,75.2,78.1,79.6,80.3,79.2,81.5,80.5,77.8,80.7,79,80,78.1,76.9,81.3,79.6,80.9, 78,79.4,77,79.3,80.6,81.4,80.1,81.6,76.1,80.3,78.9];
         
         function showAll() {
-            var text = "<table><tr><th>State</th><th>Male</th><th>Female</th></tr>";
+            var text = "<table><tr><th class='tableHeader'>State</th><th class='tableHeader'>Male</th><th class='tableHeader'>Female</th></tr>";
             for (i = 0; i < state.length; i++){
-                text += "<tr>" + "<td>" + state[i] + "</td>" + "<td>" + male[i] + "</td>" +"<td>" + female[i] +"</td>" + "</tr>";
+                text += "<tr>" + "<td>" + state[i] + "</td>" + "<td class='age'>" + male[i] + "</td>" +"<td class='age'>" + female[i] +"</td>" + "</tr>";
             }
             text += "</table>";
             document.getElementById("displayTable").innerHTML = text;
         }                           
              
         function showMale(){
-            var text = "<table><tr><th>State</th><th>Male</th><th>Female</th></tr>";
+            var text = "<table><tr><th class='tableHeader'>State</th><th class='tableHeader'>Male</th><th class='tableHeader'>Female</th></tr>";
             var age = parseInt(document.getElementById("numberIn").value);
-            var text = "<table><tr><th>State</th><th>Female</th></tr>";
             
             for (i = 0; i < state.length; i++){
                 if (male[i] >= age) {
-                text += "<tr>" + "<td>" + state[i] + "</td>" + "<td>" + male[i] + "</td>" +"<td>" + female[i] +"</td>" + "</tr>";
+                    text += "<tr>" + "<td>" + state[i] + "</td>" + "<td class='age'>" + male[i] + "</td>" +"<td class='age'>" + female[i] +"</td>" + "</tr>";
                 }
             }
             text += "</table>";
@@ -65,10 +71,10 @@
         }
 
         function showFemale(){
-            var text = "<table><tr><th>State</th><th>Male</th><th>Female</th></tr>";
+            var text = "<table><tr><th class='tableHeader'>State</th><th class='tableHeader'>Male</th><th class='tableHeader'>Female</th></tr>";
             for (i = 0; i < state.length; i++){
                 if (female[i] >= 80){
-                text += "<tr>" + "<td>" + state[i] + "</td>" + "<td>" + male[i] + "</td>" +"<td>" + female[i] +"</td>" + "</tr>";
+                    text += "<tr>" + "<td>" + state[i] + "</td>" + "<td class='age'>" + male[i] + "</td>" +"<td class='age'>" + female[i] +"</td>" + "</tr>";
                 }
             }
             text += "</table>";
